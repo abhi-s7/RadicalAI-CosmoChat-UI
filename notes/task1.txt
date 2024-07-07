@@ -1,0 +1,56 @@
+
+
+Install the necessary dependencies:
+
+    - react-router-dom: used for routing
+    - axios: for http requests
+    - react-redux: for state management
+
+After that, you need to install all the dependencies present in package.json: npm install package.json
+This will create a package-lock.json 
+
+npm install react-router-dom
+npm install axios
+npm install react-redux
+npm install package.json
+
+Rex recommends to install like: 
+npm install react-router-dom axios react-redux @material-ui/core @material-ui/icons
+
+also it says to do : npm install instead of npm install package.json
+
+Error:
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: radicalai-cosmochat-ui@0.1.0
+npm error Found: react@18.3.1
+npm error node_modules/react
+npm error   react@"^18.3.1" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer react@"^16.8.0 || ^17.0.0" from @material-ui/core@4.12.4
+npm error node_modules/@material-ui/core
+npm error   @material-ui/core@"*" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error C:\Users\abhi\AppData\Local\npm-cache\_logs\2024-07-07T03_18_24_084Z-eresolve-report.txt
+
+
+Option 1: Downgrade React
+Downgrade react to a version that is compatible with @material-ui/core@4.12.4.
+npm install react@17.0.2 react-dom@17.0.2
+
+Option 2: Use --legacy-peer-deps
+Force npm to install the dependencies by ignoring the peer dependency conflict.
+npm install react-router-dom axios react-redux @material-ui/core @material-ui/icons --legacy-peer-deps
+
+Option 3: Upgrade Material-UI
+Upgrade @material-ui/core to the latest version (now known as @mui/material), which supports React 18.
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material

@@ -1,0 +1,118 @@
+Folder structure:
+
+Begineer - smaller projects 
+
+Under src you can have the following folder:
+    - components (like buttons etc)
+    - hooks
+
+
+
+Intermediate
+
+    - tests should be in each individual folders 
+    __tests__
+Folder structure
+
+v src
+    > assets - contains images, css, or files that doesn't have js code
+    > components (shared components among pages)
+        > __tests__
+        > form 
+        > ui
+        Navbar.js 
+    > context - any contexts 
+    > data - any json data that you have, some constants variables 
+    > hooks
+    > pages
+        > Home (have unique things like TodoModal, TodoContext)
+        > Login (we add code that is only unique to the Login functionality)
+        > Settings
+        > Signup
+    > utils - all utilities functions like formatCurrency, formatDate. They are generally small, and called peer functions 
+App.js
+
+
+Advance - For bigger projects
+
+As we move towards bigger application, there would be more number of features thus, more number of pages.
+So we would take components out of it and put in components folder, which would create mess.
+So, in order to avoid this situation, we will organize the folder structure as below:
+
+v src
+    > assets
+    > components
+    > context
+    > data
+    > features (Most Important folder) (99% of code will be here)
+        - It is like a mini version of the src folder but for different features 
+        v authentication
+            > components
+            > hooks
+            > services 
+            index.js - every feature will have this file and we will export all of the things we want to use from this particular feature 
+    > hooks
+    > layouts (specifically for components that is responsible for laying things out like NavBar, sidebar, Pagecontainer)
+    > lib (3 party libraries for fetching data using axios or something else)
+        - Implementation of a fascade patterns (you take a library like axios, wrap within your code and expose your implementataion of it)
+        - we are putting all code here if we want to update the version we can come to single place and change it 
+    > pages
+        - Instead of folders like in Intermediate one, we just have files 
+        - So the extra code went to the features folder 
+    > services (integrating with an api, e.g. analytics)
+    > utils
+App.js
+
+
+------------------------------------------------
+
+Radical AI Instructor folder:
+
+public
+    - index.html file 
+    - assets
+
+src
+    - source directory where the main js and jsx files are there 
+    it has 
+    api
+    assets 
+    components - each sub folder is a component with its own index.jsx file 
+    constants - constants files to use them globally
+    pages - components that represents entire pages or views within the application. Layout and particular page 
+    styles - contains styling files and theme related files 
+
+data 
+
+---------------------------
+
+Initial files:
+
+logo.svg
+reportWebvitals.js
+setupTests.js
+App.js
+App.test.js
+index.js 
+App.css 
+index.css
+
+Organizing the initial files into folders:
+
+Move "App.js" and "App.test.js" into a folder named "components".
+    - "App.js" and "App.test.js" are typical components of a React app, so they are placed in the "components" folder to keep all the component-related files together.
+
+Move "index.js" into a folder named "pages".
+    - "index.js" is often used to represent different pages of the app, so they are placed in the "pages" folder to organize the files related to different app pages.
+
+Move "logo.svg", "reportWebvitals.js", and "setupTests.js" into a folder named "assets".
+    - "logo.svg", "reportWebvitals.js", and "setupTests.js" are assets and utility files that are not directly related to components or pages. Placing them in the "assets" folder keeps them separate from the component and page files, making it easier to manage and locate them.
+
+"App.css" and "index.css" can be kept in the root folder or moved into a folder named "styles" within the "assets" folder.
+    - "App.css" and "index.css" can be kept in the root folder or moved into a "styles" folder within the "assets" folder to separate the stylesheets from other assets, making it easier to manage the project's styles.
+
+Note:
+"reportWebVitals.js" is a file used for reporting web vitals, which are metrics related to user experience, performance, and accessibility. This file is often used to track and report important performance metrics of the web application, such as the Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).
+"setupTests.js" is a file used for setting up the testing environment for the project. It allows you to configure the testing framework, set up testing libraries, and perform any necessary setup steps before running the tests for your React application.
+
+Both of these files play important roles in monitoring the performance and setting up the testing environment for your React project.
