@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# COSMOCHAT UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Components](#components)
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+This project is a chat application built with React that allows users to start new chat sessions, revisit previous chat sessions, and view analytics on their chat activity. The application integrates with OpenAI's API to provide responses to user messages.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Start and end chat sessions
+- Store chat history in local storage
+- Display previous chat sessions
+- Interactive chat interface
+- Real-time analytics dashboard
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started with the project, follow these steps:
 
-### `npm run build`
+- **Clone the repository:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```sh
+  git clone https://github.com/abhi-s7/radicalai-cosmochat-ui.git
+  cd radicalai-cosmochat-ui
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Create a .env file and add your API key:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  ```sh
+  REACT_APP_OPENAI_API_KEY=your_api_key_here
+  
+- **Install dependencies:**
 
-### `npm run eject`
+  ```sh
+  npm install
+  
+- **Run the application:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ```sh
+  npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Open your browser:**
+    Navigate to http://localhost:3000 to see the app in action.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Starting a New Chat Session
 
-## Learn More
+- On the landing page, click on the "Start Chat" button to begin a new chat session.
+- Enter your message in the input field and press "Send" to receive a response from the OpenAI API.
+- To end the session, click on the "End Chat" button.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![1](https://github.com/user-attachments/assets/f35758d8-9a11-4e23-bce1-f20c4a6489bd)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Viewing Previous Sessions
 
-### Code Splitting
+- On the landing page, scroll to the "Previous Sessions" section.
+- Click on any session to reload it and view the chat history.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![2](https://github.com/user-attachments/assets/2d954eb7-c5da-4e56-aa04-fe2c2d1c26cb)
 
-### Analyzing the Bundle Size
+### Viewing the Dashboard
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Navigate to the Dashboard to see visualizations of your chat activity.
+- The line chart shows daily activity, and the pie chart shows the distribution of message types.
 
-### Making a Progressive Web App
+![3](https://github.com/user-attachments/assets/78ba87dc-e4c0-4cfe-9add-5b3cfd233e19)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Components
 
-### Advanced Configuration
+### `index.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The entry point of the application. It sets up the root component and wraps it with the `ChatProvider`.
 
-### Deployment
+### `ChatContext.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Provides the context for managing chat sessions and messages. Includes state and functions to start new sessions, end sessions, and update messages.
 
-### `npm run build` fails to minify
+### `LandingPage.jsx`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The landing page component where users can start new chat sessions, end current sessions, and view previous sessions.
+
+### `ChatComponent.jsx`
+
+The chat interface where users can send and receive messages. Integrates with OpenAI's API for responses.
+
+### `Dashboard.jsx`
+
+Displays real-time analytics on chat activity, including daily message counts and message type distribution using Chart.js.
+
